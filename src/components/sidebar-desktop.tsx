@@ -9,6 +9,7 @@ import { Separator } from "@radix-ui/react-separator";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 
 interface SidebarDesktopProps{
@@ -16,17 +17,25 @@ interface SidebarDesktopProps{
 }
 
 export function SidebarDesktop(props: SidebarDesktopProps){
+
+    const pathname = usePathname();
+
     return(
         <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r">
             <div className="h-full px-3 py-4">
                 <h3 className="mx-3 text-lg font-semibold text-foreground">
-                    Freedashboard
+                    Twitter
                 </h3>
                 <div className="mt-5">
                     <div className="flex flex-col gap-1 w-full">
                         {props.sidebarItems.links.map((link, index) => (
                             <Link  key={index} href={link.href}>
-                               <SidebarButton icon={link.icon} className="w-full">
+                               <SidebarButton
+                                variant={pathname === link.href ? 'secondary' : 'ghost'}
+                                icon={link.icon} 
+                               className="w-full"
+
+                               >
                                 {link.label}
                                </SidebarButton>
                             </Link>

@@ -47,7 +47,6 @@ const sidebarItems: SidebarItems = {
 export function Sidebar(){
     return(
         <SidebarDesktop  sidebarItems={sidebarItems}
-          
           />
     )
 }
