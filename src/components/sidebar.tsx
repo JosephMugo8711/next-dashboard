@@ -1,24 +1,43 @@
-import { Home } from "lucide-react"
-import { SidebarButton } from "./sidebar-button"
+'use client'
+
+import { Bell, Bookmark, Home, List, Mail, User, Users } from "lucide-react"
+import { SidebarDesktop } from "./sidebar-desktop"
+import { SidebarItems } from "@/types"
+
+
+const sidebarItems: SidebarItems = {
+    links: [
+      {label: 'Home', href: '/', icon: Home},
+      {label: 'Notifications', href: '/item/notifications', icon: Bell},
+      {label: 'Messages', href: '/item/messages', icon: Mail},
+      {
+        href: '/item/lists', 
+        icon: List,
+        label: 'Lists', 
+       },
+       {
+        href: '/item/bookmarks', 
+        icon: Bookmark,
+        label: 'Bookmarks', 
+       },
+       {
+        href: '/item/communities', 
+        icon: Users,
+        label: 'Communities', 
+       },
+       {
+        href: '/item/profile', 
+        icon: User,
+        label: 'Profile', 
+       },
+    ],
+  }
+
 
 export function Sidebar(){
     return(
-        <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r">
-            <div className="h-full px-3 py-4">
-                <h3 className="mx-3 text-lg font-semibold text-foreground">
-                    Freedashboard
-                </h3>
-                <div className="mt-5">
-                    <div className="flex flex-col gap-1 w-full">
-                        <SidebarButton icon={Home}>
-                            Home
-                        </SidebarButton>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </aside>
+        <SidebarDesktop  sidebarItems={sidebarItems}
+          
+          />
     )
 }
