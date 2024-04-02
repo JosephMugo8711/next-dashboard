@@ -1,8 +1,9 @@
 'use client'
 
-import { Bell, Bookmark, Home, List, Mail, User, Users } from "lucide-react"
+import { Bell, Bookmark, Home, List, Mail, MoreHorizontal, User, Users } from "lucide-react"
 import { SidebarDesktop } from "./sidebar-desktop"
 import { SidebarItems } from "@/types"
+import { SidebarButton } from "./sidebar-button"
 
 
 const sidebarItems: SidebarItems = {
@@ -31,6 +32,15 @@ const sidebarItems: SidebarItems = {
         label: 'Profile', 
        },
     ],
+
+    extras: (
+        <div className="flex flex-col gap-2">
+            <SidebarButton icon={MoreHorizontal} className="w-full">
+                More
+            </SidebarButton>
+            <SidebarButton className="w-full justify-center text-white" variant='default'>Tweet</SidebarButton>
+        </div>
+    )
   }
 
 
